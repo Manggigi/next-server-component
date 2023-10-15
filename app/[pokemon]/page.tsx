@@ -1,8 +1,9 @@
-import PokeAPI from "pokeapi-typescript";
 import Image from "next/image";
+import PokeAPI from "pokeapi-typescript";
 
 async function getPokemon(nameOrId: string) {
   const result = await PokeAPI.Pokemon.resolve(nameOrId);
+  // include
   return {
     name: result.name,
     sprites: result.sprites,
@@ -20,7 +21,7 @@ const Pokemon = async (props: Props) => {
   const pokemon = await getPokemon(params.pokemon);
 
   return (
-    <div>
+    <>
       <a href="/" type="button">
         back
       </a>
@@ -38,7 +39,7 @@ const Pokemon = async (props: Props) => {
         width={100}
         height={100}
       />
-    </div>
+    </>
   );
 };
 
